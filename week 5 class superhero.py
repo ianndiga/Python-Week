@@ -1,3 +1,4 @@
+# Assignment 1: Design Your Own Class! 
 class Superhero:
     def __init__(self, name, superpower, strength, weakness):
         self.name = name         
@@ -16,8 +17,6 @@ class Superhero:
     
     def fight(self):
         return f"{self.name} is fighting evil with {self.superpower}!"
-
-
 class FlyingSuperhero(Superhero):
     def __init__(self, name, superpower, strength, weakness, flight_speed):
         
@@ -65,3 +64,39 @@ print("\n")
 print(hero3.display_info())
 print(hero3.sneak())
 print(hero3.use_superpower())
+
+
+# Activity 2: Polymorphism Challenge!
+# Base class for animals and vehicles
+class MovingObject:
+    def move(self):
+        pass 
+
+class Car(MovingObject):
+    def move(self):
+        print("Driving")
+
+class Plane(MovingObject):
+    def move(self):
+        print("Flying")
+
+class Dog(MovingObject):
+    def move(self):
+        print("Running")
+
+class Fish(MovingObject):
+    def move(self):
+        print("Swimming")
+
+def demonstrate_movement(moving_objects):
+    for obj in moving_objects:
+        obj.move()
+
+car = Car()
+plane = Plane()
+dog = Dog()
+fish = Fish()
+
+objects = [car, plane, dog, fish]
+
+demonstrate_movement(objects)
