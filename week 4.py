@@ -1,4 +1,3 @@
-# File Read & Write
 def modify_file(input_filename, output_filename):
     try:
         with open(input_filename, 'r') as infile:
@@ -18,7 +17,6 @@ output_file = 'output.txt'
 modify_file(input_file, output_file)
 
 
-# Error Handling Lab
 def read_file_with_error_handling():
     filename = input("Please enter the filename to read: ")
 
