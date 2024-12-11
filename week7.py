@@ -1,0 +1,38 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.datasets import load_iris
+iris = load_iris()
+df = pd.DataFrame(iris.data, columns=iris.feature_names)
+df['species'] = iris.target
+species_map = {0: 'setosa', 1: 'versicolor', 2: 'virginica'}
+df['species'] = df['species'].map(species_map)
+print(df.dtypes)
+print(df.isnull().sum())
+print(df.describe())
+print(df.groupby('species').mean())
+plt.figure(figsize=(10, 6))
+sns.lineplot(data=df, x='species', y='sepal length (cm)', marker='o')
+plt.title('Sepal Length Across Species')
+plt.xlabel('Species')
+plt.ylabel('Sepal Length (cm)')
+plt.show()
+plt.figure(figsize=(10, 6))
+sns.barplot(data=df, x='species', y='petal length (cm)')
+plt.title('Average Petal Length per Species')
+plt.xlabel('Species')
+plt.ylabel('Average Petal Length (cm)')
+plt.show()
+plt.figure(figsize=(10, 6))
+sns.histplot(df['sepal width (cm)'], kde=True, bins=15)
+plt.title('Distribution of Sepal Width')
+plt.xlabel('Sepal Width (cm)')
+plt.ylabel('Frequency')
+plt.show()
+plt.figure(figsize=(10, 6))
+sns.scatterplot(data=df, x='sepal length (cm)', y='petal length (cm)', hue='species')
+plt.title('Sepal Length vs Petal Length')
+plt.xlabel('Sepal Length (cm)')
+plt.ylabel('Petal Length (cm)')
+plt.legend(title='Species')
+plt.show()
